@@ -1,8 +1,10 @@
 <div class="form-container">
+
+  <div class="content-container">
 <h1>ToDo List</h1>
 <p>A place to store your todos</p>
 
-<ol class="todo-list-container">
+<ol>
   <li *ngFor="let task of todolist; index as i" [ngClass]="{ completed: task.completed }" class="todo-list-li" >
     <p> <button *ngIf="!task.completed" (click)="completedTask(task)" class="completed-btn">Completed</button> {{ task.task }} </p>
     <i class="fas fa-times-circle"  (click)="removeTask(i)"></i>
@@ -13,11 +15,12 @@
     <label for="newTask">Add your to-do</label>
     <input type="text" name="newTask" id="newTask" ngModel>
 
-    <label for="yes">Completed Task</label>
+    <label class="task-yes" for="yes">Completed Task</label>
     <input type="radio" name="completed" id="yes" value="yes" ngModel />
-    <label for="no">Task not completed</label>
+    <label class="task-no" for="no">Task not completed</label>
     <input type="radio" name="completed" id="no" value="no" ngModel />
     <button class="add-btn">Add</button>
 </form>
 
+</div>
 </div>

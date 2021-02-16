@@ -7,10 +7,14 @@ width: 70%;
 margin: 0 auto;
 }
 
+.content-container {
+  margin: 0 15px;
+}
 
 
 .todo-list-li {
   position: relative;
+ 
 }
 
 .completed {
@@ -25,13 +29,22 @@ margin: 0 auto;
 
 .fas {
 position: absolute;
-right: 10px;
+right: 0;
 top: 0;
 }
 
+.task-yes {
+  margin: 0 8px;
+}
 
+.task-no {
+  margin: 0 8px;
+}
 
 .add-btn {
   background-color: #ff1493;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
