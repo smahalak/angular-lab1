@@ -1,0 +1,37 @@
+.form-container {
+background-color: white;
+border-radius: 10px;
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+height: 40%;
+width: 70%;
+margin: 0 auto;
+}
+
+
+
+.todo-list-li {
+  position: relative;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.completed-btn {
+  background-color: white;
+  color: #ff69b4;
+
+}
+
+.fas {
+position: absolute;
+right: 10px;
+top: 0;
+}
+
+
+
+.add-btn {
+  background-color: #ff1493;
+}
+
