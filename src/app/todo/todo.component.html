@@ -4,16 +4,26 @@
 <h1>ToDo List</h1>
 <p>A place to store your todos</p>
 
+<!-- input listens for every click-->
+<form #filterForm="ngForm" (input)="setSearchTerm(filterForm)">
+  <input type="text" placeholder="filter your todos" name="filter" ngModel>
+</form>
+
 <ol>
-  <li *ngFor="let task of todolist; index as i" [ngClass]="{ completed: task.completed }" class="todo-list-li" >
-    <p> <button *ngIf="!task.completed" (click)="completedTask(task)" class="completed-btn">Completed</button> {{ task.task }} </p>
+  <!--  said *ngFor="let task of todolist; but needed to change for filter to work-->
+  <li *ngFor="let task of filter(searchTerm); index as i"  class="todo-list-li" >
+    <p [ngClass]="{ 'completed': task.completed }" > <button *ngIf="!task.completed" (click)="completedTask(task)" class="completed-btn">Completed</button> {{ task.task }} </p>
     <i class="fas fa-times-circle"  (click)="removeTask(i)"></i>
   </li>
 </ol>
 
-<form #addForm="ngForm" (ngSubmit)="addTask(addForm)" >
+
+<!-- #addForm is called a template reference -->
+<form #addForm="ngForm" (ngSubmit)="addTask(addForm)" >    
     <label for="newTask">Add your to-do</label>
-    <input type="text" name="newTask" id="newTask" ngModel>
+    <input type="text" name="newTask" id="newTask" placeholder="Enter your todo" ngModel>
+<!-- the name="newTask" is how   task: form.form.value.newTask; is able to work when making a new object -->
+
 
     <label class="task-yes" for="yes">Completed Task</label>
     <input type="radio" name="completed" id="yes" value="yes" ngModel />

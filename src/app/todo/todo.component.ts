@@ -32,12 +32,16 @@ export class TodoComponent implements OnInit {
     },
   ];
 
+  searchTerm: string = '';
+
   constructor() {}
 
   ngOnInit(): void {}
 
   completedTask = (task: ToDo): void => {
     task.completed = !task.completed;
+
+    //could have just done todo.completed = true;
   };
 
   removeTask = (index: number): void => {
@@ -52,6 +56,19 @@ console.log(form);
     completed: form.form.value.completed === 'yes',
   }
   this.todolist.push(newToDo)
+}
+
+
+setSearchTerm = (form: NgForm):void => {
+  console.log(form.form.value.filter);
+  
+  this.searchTerm = form.form.value.filter;
+}
+
+filter = (term: string):ToDo[] => {
+  return this.todolist.filter((item)=>{
+return item.task.includes(term)
+  })
 }
 
 }
